@@ -7,9 +7,10 @@
 </head>
 <body>
     <h1>VARIABLE.HTML</h1>
-    <h2>First name:{{first_name | lower | capfirst}} - lenght first name: {{first_name | length}}</h2>
-    <h2>Second name:{{second_name| lower | capfirst}}- lenght second name: {{second_name | length}}</h2>
-    <h2>{{some_list.1}}</h2>
-    <h2>{{some_dict.inside_key}}</h2>
+    <h1>{% for item in some_list %}
+        <h2>{{item}}</h2>
+
+        {% endfor %}
+    </h1>
 </body>
 </html>
