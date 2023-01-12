@@ -8,9 +8,15 @@
 <body>
     <h1>VARIABLE.HTML</h1>
     <h1>{% for item in some_list %}
-        <h2>{{item}}</h2>
-
+            {% if item == 2 %}
+                <li>TWO</li>
+            {% else %}
+                <li>{{item}}</li>
+            {% endif %}
         {% endfor %}
     </h1>
+    <h2>{% if user_logged_in %}
+        <h1>{{first_name  | capfirst}}  {{second_name | capfirst}}</h1>
+        {% endif %}</h2>
 </body>
 </html>
