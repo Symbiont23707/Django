@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <h1><a href="{% url 'first_app:variable' %}">Click</a></h1>
+<img src="{% static 'first_app/django.png'%}" alt='my image'>
 {% endblock  %}
