@@ -20,3 +20,5 @@ urlpatterns = [
     path('first_app/',include('first_app.urls')),
     path('admin/', admin.site.urls),
 ]
+
+handler404 = 'my_site.views.my_custom_page_not_found_view'    
