@@ -1,10 +1,12 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 class Patient(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
-    age = models.IntegerField()
+    age = models.IntegerField(validators=[MaxValueValidator(0),MinValueValidator(120)])
+    heartrate = models.IntegerField(default=60,validators=[MaxValueValidator(1),MinValueValidator(300)])
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} is {self.age} years old."
