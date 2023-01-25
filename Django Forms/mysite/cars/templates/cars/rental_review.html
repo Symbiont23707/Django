@@ -9,7 +9,7 @@
     <h1>RENTAL REVIEW FORM</h1>
     <form method="POST">
         {% csrf_token %}
-        {{form}}
+        {{form.as_p}}
         <input type="submit">
     </form>
 </body>
