@@ -3,6 +3,8 @@ from .models import BookInstance, Book
 from django.views.generic import CreateView, DetailView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
 # Create your views here.
 
 def index(request):
@@ -28,3 +30,8 @@ class BookDetailView(DetailView):
 @login_required
 def my_views(request):
     return render(request,'catalog/my_view.html')
+
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'catalog/signup.html'
