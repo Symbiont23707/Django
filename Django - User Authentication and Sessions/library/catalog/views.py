@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import BookInstance, Book
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, ListView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
@@ -35,3 +35,12 @@ class SignUpView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'catalog/signup.html'
+
+class CheckedOutBooksByUserView(LoginRequiredMixin,ListView):
+    model = BookInstance
+    template_name = 'catalog/profile.html'
+    paginate_by = 5
+
+    def get_queryset(self):
+        return BookInstance.objects.filter(borrowed=self.request.user) 
+    

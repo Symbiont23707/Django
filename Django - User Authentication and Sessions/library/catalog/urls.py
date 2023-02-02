@@ -6,5 +6,6 @@ urlpatterns = [
     path('create_book/',views.BookCreateView.as_view(),name='create_view'),
     path('book/<int:pk>/',views.BookDetailView.as_view(),name='book_detail'),
     path('my_view/',views.my_views, name='my_view'),
-    path('signup/',views.SignUpView.as_view(),name='signup')
+    path('signup/',views.SignUpView.as_view(),name='signup'),
+    path('profile/',views.CheckedOutBooksByUserView.as_view(),name="profile")
 ]
